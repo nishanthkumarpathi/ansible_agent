@@ -1,0 +1,170 @@
+2018-11-05 13:23:44,545 p=3523 u=ubuntu |  PLAY [Get start timestamp] *************************************************************************************************************
+2018-11-05 13:23:44,553 p=3523 u=ubuntu |  TASK [Gathering Facts] *****************************************************************************************************************
+2018-11-05 13:23:45,192 p=3523 u=ubuntu |  ok: [cloud]
+2018-11-05 13:23:45,217 p=3523 u=ubuntu |  TASK [set_fact] ************************************************************************************************************************
+2018-11-05 13:23:45,249 p=3523 u=ubuntu |  ok: [cloud]
+2018-11-05 13:23:45,260 p=3523 u=ubuntu |  PLAY [Prepare to run the workload] *****************************************************************************************************
+2018-11-05 13:23:45,286 p=3523 u=ubuntu |  TASK [Gathering Facts] *****************************************************************************************************************
+2018-11-05 13:23:45,677 p=3523 u=ubuntu |  ok: [cloud]
+2018-11-05 13:23:45,703 p=3523 u=ubuntu |  TASK [include_tasks] *******************************************************************************************************************
+2018-11-05 13:23:45,834 p=3523 u=ubuntu |  included: /home/ubuntu/cello/src/agent/ansible/roles/cloud_aws/prepare/tasks/apply.yml for cloud
+2018-11-05 13:23:45,862 p=3523 u=ubuntu |  TASK [Setup env specific variables] ****************************************************************************************************
+2018-11-05 13:23:45,899 p=3523 u=ubuntu |  ok: [cloud]
+2018-11-05 13:23:45,925 p=3523 u=ubuntu |  TASK [Setup VPC filter if VPC ID defined] **********************************************************************************************
+2018-11-05 13:23:45,939 p=3523 u=ubuntu |  skipping: [cloud]
+2018-11-05 13:23:45,965 p=3523 u=ubuntu |  TASK [Setup Subnet filter if Subnet ID defined] ****************************************************************************************
+2018-11-05 13:23:45,978 p=3523 u=ubuntu |  skipping: [cloud]
+2018-11-05 13:23:46,007 p=3523 u=ubuntu |  TASK [Set  ubuntu ami_id] **************************************************************************************************************
+2018-11-05 13:23:46,043 p=3523 u=ubuntu |  ok: [cloud]
+2018-11-05 13:23:46,069 p=3523 u=ubuntu |  TASK [Create a key-pair] ***************************************************************************************************************
+2018-11-05 13:23:49,082 p=3523 u=ubuntu |  ok: [cloud] => (item=ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDFytcv+ZwwuGqUOs1a1nrkf2sDXQFp7uKo7UKMFEJ6V0HVL+86vRp/F2LH7nKCcqdG+v6YctLpi/F20gV+mCVoCz7V43sOLsQX6kstUmekLV3hmR0PzHBoW0sDqIM2RufHcrTArQhN/u+/piAMQum1dz+2FMdhESIlqQti1x2w31bbHll1IiPa6oyR+BkKfOsxp+Y+rdvA6cK7pD5CfXdRreEgKNe8F0E7sg0hzjw4eboidIeUnl4llhF0fRHxZZjAD1oKA2ByBDYc89GkiO2+Qii3K6nf991Akzox85ruZZyHQgdXyMbxocO7ZnmFo0Mt4PwAbOwwogSfb6t+c2Qt ubuntu@ip-172-31-26-26)
+2018-11-05 13:23:49,108 p=3523 u=ubuntu |  TASK [Gather vpc facts] ****************************************************************************************************************
+2018-11-05 13:23:51,486 p=3523 u=ubuntu |  ok: [cloud]
+2018-11-05 13:23:51,510 p=3523 u=ubuntu |  TASK [Create EC2 security group] *******************************************************************************************************
+2018-11-05 13:23:54,654 p=3523 u=ubuntu |  ok: [cloud]
+2018-11-05 13:23:54,680 p=3523 u=ubuntu |  TASK [ec2_group_facts] *****************************************************************************************************************
+2018-11-05 13:23:56,013 p=3523 u=ubuntu |  ok: [cloud]
+2018-11-05 13:23:56,039 p=3523 u=ubuntu |  TASK [Gather subnet facts] *************************************************************************************************************
+2018-11-05 13:23:57,413 p=3523 u=ubuntu |  ok: [cloud]
+2018-11-05 13:23:57,438 p=3523 u=ubuntu |  TASK [Add provisioning host group] *****************************************************************************************************
+2018-11-05 13:23:57,489 p=3523 u=ubuntu |  changed: [cloud] => (item=None)
+2018-11-05 13:23:57,493 p=3523 u=ubuntu |  changed: [cloud] => (item=None)
+2018-11-05 13:23:57,501 p=3523 u=ubuntu |  changed: [cloud] => (item=None)
+2018-11-05 13:23:57,502 p=3523 u=ubuntu |  changed: [cloud]
+2018-11-05 13:23:57,514 p=3523 u=ubuntu |  PLAY [provision servers] ***************************************************************************************************************
+2018-11-05 13:23:58,714 p=3523 u=ubuntu |  TASK [Gathering Facts] *****************************************************************************************************************
+2018-11-05 13:23:58,715 p=3523 u=ubuntu |  ok: [fabric001]
+2018-11-05 13:23:58,764 p=3523 u=ubuntu |  ok: [fabric002]
+2018-11-05 13:23:58,766 p=3523 u=ubuntu |  ok: [fabric003]
+2018-11-05 13:23:58,886 p=3523 u=ubuntu |  included: /home/ubuntu/cello/src/agent/ansible/roles/cloud_aws/provision/tasks/apply.yml for fabric001
+2018-11-05 13:23:59,017 p=3523 u=ubuntu |  TASK [Setup env specific variables] ****************************************************************************************************
+2018-11-05 13:23:59,018 p=3523 u=ubuntu |  ok: [fabric001]
+2018-11-05 13:23:59,056 p=3523 u=ubuntu |  included: /home/ubuntu/cello/src/agent/ansible/roles/cloud_aws/provision/tasks/apply.yml for fabric002
+2018-11-05 13:23:59,223 p=3523 u=ubuntu |  included: /home/ubuntu/cello/src/agent/ansible/roles/cloud_aws/provision/tasks/apply.yml for fabric003
+2018-11-05 13:23:59,256 p=3523 u=ubuntu |  TASK [Get the allocated IP address if there is any configured] *************************************************************************
+2018-11-05 13:23:59,256 p=3523 u=ubuntu |  ok: [fabric001]
+2018-11-05 13:23:59,259 p=3523 u=ubuntu |  TASK [Setup env specific variables] ****************************************************************************************************
+2018-11-05 13:23:59,259 p=3523 u=ubuntu |  ok: [fabric002]
+2018-11-05 13:23:59,391 p=3523 u=ubuntu |  TASK [Setup env specific variables] ****************************************************************************************************
+2018-11-05 13:23:59,391 p=3523 u=ubuntu |  ok: [fabric003]
+2018-11-05 13:23:59,467 p=3523 u=ubuntu |  TASK [Get the allocated IP address if there is any configured] *************************************************************************
+2018-11-05 13:23:59,468 p=3523 u=ubuntu |  ok: [fabric002]
+2018-11-05 13:23:59,555 p=3523 u=ubuntu |  TASK [Get the allocated IP address if there is any configured] *************************************************************************
+2018-11-05 13:23:59,559 p=3523 u=ubuntu |  ok: [fabric003]
+2018-11-05 13:24:26,245 p=3523 u=ubuntu |  TASK [Launch new instance] *************************************************************************************************************
+2018-11-05 13:24:26,245 p=3523 u=ubuntu |  changed: [fabric003]
+2018-11-05 13:24:26,277 p=3523 u=ubuntu |  TASK [Launch new instance] *************************************************************************************************************
+2018-11-05 13:24:26,278 p=3523 u=ubuntu |  changed: [fabric002]
+2018-11-05 13:24:26,342 p=3523 u=ubuntu |  TASK [Setup variables for generate host groups] ****************************************************************************************
+2018-11-05 13:24:26,347 p=3523 u=ubuntu |  ok: [fabric003]
+2018-11-05 13:24:26,410 p=3523 u=ubuntu |  TASK [Setup variables for generate host groups] ****************************************************************************************
+2018-11-05 13:24:26,411 p=3523 u=ubuntu |  ok: [fabric002]
+2018-11-05 13:24:26,453 p=3523 u=ubuntu |  TASK [Use public ip address when private ip is empty] **********************************************************************************
+2018-11-05 13:24:26,455 p=3523 u=ubuntu |  skipping: [fabric003]
+2018-11-05 13:24:26,495 p=3523 u=ubuntu |  TASK [Use public ip address when private ip is empty] **********************************************************************************
+2018-11-05 13:24:26,496 p=3523 u=ubuntu |  skipping: [fabric002]
+2018-11-05 13:24:26,541 p=3523 u=ubuntu |  TASK [Use private ip address when public ip is empty] **********************************************************************************
+2018-11-05 13:24:26,541 p=3523 u=ubuntu |  skipping: [fabric003]
+2018-11-05 13:24:26,580 p=3523 u=ubuntu |  TASK [Use private ip address when public ip is empty] **********************************************************************************
+2018-11-05 13:24:26,580 p=3523 u=ubuntu |  skipping: [fabric002]
+2018-11-05 13:24:41,863 p=3523 u=ubuntu |  TASK [Launch new instance] *************************************************************************************************************
+2018-11-05 13:24:41,863 p=3523 u=ubuntu |  changed: [fabric001]
+2018-11-05 13:24:41,930 p=3523 u=ubuntu |  TASK [Setup variables for generate host groups] ****************************************************************************************
+2018-11-05 13:24:41,930 p=3523 u=ubuntu |  ok: [fabric001]
+2018-11-05 13:24:41,973 p=3523 u=ubuntu |  TASK [Use public ip address when private ip is empty] **********************************************************************************
+2018-11-05 13:24:41,973 p=3523 u=ubuntu |  skipping: [fabric001]
+2018-11-05 13:24:42,017 p=3523 u=ubuntu |  TASK [Use private ip address when public ip is empty] **********************************************************************************
+2018-11-05 13:24:42,017 p=3523 u=ubuntu |  skipping: [fabric001]
+2018-11-05 13:24:42,080 p=3523 u=ubuntu |  PLAY [Post provision process] **********************************************************************************************************
+2018-11-05 13:24:42,105 p=3523 u=ubuntu |  TASK [Gathering Facts] *****************************************************************************************************************
+2018-11-05 13:24:42,454 p=3523 u=ubuntu |  ok: [cloud]
+2018-11-05 13:24:42,479 p=3523 u=ubuntu |  TASK [include_tasks] *******************************************************************************************************************
+2018-11-05 13:24:42,521 p=3523 u=ubuntu |  included: /home/ubuntu/cello/src/agent/ansible/roles/cloud_aws/postprovision/tasks/apply.yml for cloud
+2018-11-05 13:24:42,551 p=3523 u=ubuntu |  TASK [include_tasks] *******************************************************************************************************************
+2018-11-05 13:24:42,611 p=3523 u=ubuntu |  included: /home/ubuntu/cello/src/agent/ansible/roles/cloud_aws/postprovision/tasks/../../../cloud_os/postprovision/tasks/apply.yml for cloud
+2018-11-05 13:24:42,639 p=3523 u=ubuntu |  TASK [Ensure we have a working directory to save runtime files] ************************************************************************
+2018-11-05 13:24:42,904 p=3523 u=ubuntu |  ok: [cloud]
+2018-11-05 13:24:42,929 p=3523 u=ubuntu |  TASK [Remove the runhost file] *********************************************************************************************************
+2018-11-05 13:24:43,052 p=3523 u=ubuntu |  changed: [cloud]
+2018-11-05 13:24:43,077 p=3523 u=ubuntu |  TASK [Remove the fabric host file] *****************************************************************************************************
+2018-11-05 13:24:43,199 p=3523 u=ubuntu |  changed: [cloud]
+2018-11-05 13:24:43,225 p=3523 u=ubuntu |  TASK [Setup runhosts file] *************************************************************************************************************
+2018-11-05 13:24:43,489 p=3523 u=ubuntu |  changed: [cloud] => (item=cloud ansible_host=127.0.0.1 ansible_python_interpreter=python)
+2018-11-05 13:24:43,517 p=3523 u=ubuntu |  TASK [Add the node to host group named allnodes] ***************************************************************************************
+2018-11-05 13:24:43,638 p=3523 u=ubuntu |  changed: [cloud] => (item=fabric001)
+2018-11-05 13:24:43,706 p=3523 u=ubuntu |  changed: [cloud] => (item=fabric002)
+2018-11-05 13:24:43,780 p=3523 u=ubuntu |  changed: [cloud] => (item=fabric003)
+2018-11-05 13:24:43,808 p=3523 u=ubuntu |  TASK [Add the node to host group with specified IP] ************************************************************************************
+2018-11-05 13:24:43,928 p=3523 u=ubuntu |  changed: [cloud] => (item=[u'fabric001', {u'member': [u'fabric001', u'fabric002', u'fabric003'], u'type': u'etcdnodes'}])
+2018-11-05 13:24:44,004 p=3523 u=ubuntu |  changed: [cloud] => (item=[u'fabric001', {u'member': [u'fabric001'], u'type': u'builders'}])
+2018-11-05 13:24:44,081 p=3523 u=ubuntu |  changed: [cloud] => (item=[u'fabric002', {u'member': [u'fabric001', u'fabric002', u'fabric003'], u'type': u'etcdnodes'}])
+2018-11-05 13:24:44,089 p=3523 u=ubuntu |  skipping: [cloud] => (item=[u'fabric002', {u'member': [u'fabric001'], u'type': u'builders'}]) 
+2018-11-05 13:24:44,168 p=3523 u=ubuntu |  changed: [cloud] => (item=[u'fabric003', {u'member': [u'fabric001', u'fabric002', u'fabric003'], u'type': u'etcdnodes'}])
+2018-11-05 13:24:44,174 p=3523 u=ubuntu |  skipping: [cloud] => (item=[u'fabric003', {u'member': [u'fabric001'], u'type': u'builders'}]) 
+2018-11-05 13:24:44,202 p=3523 u=ubuntu |  TASK [Add all the hosts to the file] ***************************************************************************************************
+2018-11-05 13:24:44,426 p=3523 u=ubuntu |  changed: [cloud] => (item=fabric001)
+2018-11-05 13:24:44,605 p=3523 u=ubuntu |  changed: [cloud] => (item=fabric002)
+2018-11-05 13:24:44,784 p=3523 u=ubuntu |  changed: [cloud] => (item=fabric003)
+2018-11-05 13:24:44,811 p=3523 u=ubuntu |  TASK [Setup groups in the inventory file] **********************************************************************************************
+2018-11-05 13:24:44,949 p=3523 u=ubuntu |  changed: [cloud] => (item=)
+2018-11-05 13:24:45,043 p=3523 u=ubuntu |  changed: [cloud] => (item=[allnodes])
+2018-11-05 13:24:45,136 p=3523 u=ubuntu |  changed: [cloud] => (item=54.91.38.69)
+2018-11-05 13:24:45,230 p=3523 u=ubuntu |  changed: [cloud] => (item=34.201.55.130)
+2018-11-05 13:24:45,323 p=3523 u=ubuntu |  changed: [cloud] => (item=18.206.87.49)
+2018-11-05 13:24:45,412 p=3523 u=ubuntu |  changed: [cloud] => (item=)
+2018-11-05 13:24:45,505 p=3523 u=ubuntu |  changed: [cloud] => (item=[etcdnodes])
+2018-11-05 13:24:45,596 p=3523 u=ubuntu |  changed: [cloud] => (item=54.91.38.69)
+2018-11-05 13:24:45,692 p=3523 u=ubuntu |  changed: [cloud] => (item=34.201.55.130)
+2018-11-05 13:24:45,784 p=3523 u=ubuntu |  changed: [cloud] => (item=18.206.87.49)
+2018-11-05 13:24:45,876 p=3523 u=ubuntu |  changed: [cloud] => (item=)
+2018-11-05 13:24:45,968 p=3523 u=ubuntu |  changed: [cloud] => (item=[builders])
+2018-11-05 13:24:46,061 p=3523 u=ubuntu |  changed: [cloud] => (item=54.91.38.69)
+2018-11-05 13:24:46,089 p=3523 u=ubuntu |  TASK [Create the hosts file] ***********************************************************************************************************
+2018-11-05 13:24:46,266 p=3523 u=ubuntu |  changed: [cloud] => (item=fabric001)
+2018-11-05 13:24:46,399 p=3523 u=ubuntu |  changed: [cloud] => (item=fabric002)
+2018-11-05 13:24:46,534 p=3523 u=ubuntu |  changed: [cloud] => (item=fabric003)
+2018-11-05 13:24:46,561 p=3523 u=ubuntu |  TASK [Wait until servers are up and runnning] ******************************************************************************************
+2018-11-05 13:25:02,024 p=3523 u=ubuntu |  ok: [cloud] => (item=54.91.38.69)
+2018-11-05 13:25:17,315 p=3523 u=ubuntu |  ok: [cloud] => (item=34.201.55.130)
+2018-11-05 13:25:32,592 p=3523 u=ubuntu |  ok: [cloud] => (item=18.206.87.49)
+2018-11-05 13:25:32,606 p=3523 u=ubuntu |  PLAY [change /etc/hosts files so that each node knows other nodes] *********************************************************************
+2018-11-05 13:25:40,691 p=3523 u=ubuntu |  TASK [Gathering Facts] *****************************************************************************************************************
+2018-11-05 13:25:40,692 p=3523 u=ubuntu |  ok: [18.206.87.49]
+2018-11-05 13:25:40,763 p=3523 u=ubuntu |  ok: [34.201.55.130]
+2018-11-05 13:25:40,820 p=3523 u=ubuntu |  included: /home/ubuntu/cello/src/agent/ansible/roles/cloud_os/namenode/tasks/apply.yml for 18.206.87.49
+2018-11-05 13:25:40,935 p=3523 u=ubuntu |  ok: [54.91.38.69]
+2018-11-05 13:25:40,994 p=3523 u=ubuntu |  included: /home/ubuntu/cello/src/agent/ansible/roles/cloud_os/namenode/tasks/apply.yml for 34.201.55.130
+2018-11-05 13:25:41,259 p=3523 u=ubuntu |  included: /home/ubuntu/cello/src/agent/ansible/roles/cloud_os/namenode/tasks/apply.yml for 54.91.38.69
+2018-11-05 13:25:44,933 p=3523 u=ubuntu |  TASK [Setup /etc/hosts for the node] ***************************************************************************************************
+2018-11-05 13:25:44,933 p=3523 u=ubuntu |  changed: [18.206.87.49] => (item=172.31.32.157 fabric001)
+2018-11-05 13:25:45,153 p=3523 u=ubuntu |  TASK [Setup /etc/hosts for the node] ***************************************************************************************************
+2018-11-05 13:25:45,153 p=3523 u=ubuntu |  changed: [34.201.55.130] => (item=172.31.32.157 fabric001)
+2018-11-05 13:25:45,290 p=3523 u=ubuntu |  TASK [Setup /etc/hosts for the node] ***************************************************************************************************
+2018-11-05 13:25:45,290 p=3523 u=ubuntu |  changed: [54.91.38.69] => (item=172.31.32.157 fabric001)
+2018-11-05 13:25:48,719 p=3523 u=ubuntu |  TASK [Setup /etc/hosts for the node] ***************************************************************************************************
+2018-11-05 13:25:48,720 p=3523 u=ubuntu |  changed: [18.206.87.49] => (item=172.31.32.30 fabric002)
+2018-11-05 13:25:48,984 p=3523 u=ubuntu |  TASK [Setup /etc/hosts for the node] ***************************************************************************************************
+2018-11-05 13:25:48,984 p=3523 u=ubuntu |  changed: [34.201.55.130] => (item=172.31.32.30 fabric002)
+2018-11-05 13:25:49,135 p=3523 u=ubuntu |  TASK [Setup /etc/hosts for the node] ***************************************************************************************************
+2018-11-05 13:25:49,136 p=3523 u=ubuntu |  changed: [54.91.38.69] => (item=172.31.32.30 fabric002)
+2018-11-05 13:25:52,505 p=3523 u=ubuntu |  TASK [Setup /etc/hosts for the node] ***************************************************************************************************
+2018-11-05 13:25:52,506 p=3523 u=ubuntu |  changed: [18.206.87.49] => (item=172.31.32.119 fabric003)
+2018-11-05 13:25:52,816 p=3523 u=ubuntu |  TASK [Setup /etc/hosts for the node] ***************************************************************************************************
+2018-11-05 13:25:52,817 p=3523 u=ubuntu |  changed: [34.201.55.130] => (item=172.31.32.119 fabric003)
+2018-11-05 13:25:52,985 p=3523 u=ubuntu |  TASK [Setup /etc/hosts for the node] ***************************************************************************************************
+2018-11-05 13:25:52,986 p=3523 u=ubuntu |  changed: [54.91.38.69] => (item=172.31.32.119 fabric003)
+2018-11-05 13:25:53,044 p=3523 u=ubuntu |  PLAY [Inform the installer] ************************************************************************************************************
+2018-11-05 13:25:53,067 p=3523 u=ubuntu |  TASK [Gathering Facts] *****************************************************************************************************************
+2018-11-05 13:25:53,447 p=3523 u=ubuntu |  ok: [cloud]
+2018-11-05 13:25:53,471 p=3523 u=ubuntu |  TASK [debug] ***************************************************************************************************************************
+2018-11-05 13:25:53,528 p=3523 u=ubuntu |  ok: [cloud] => {
+    "msg": "The work load started at 13:23:45, ended at 13:25:53"
+}
+2018-11-05 13:25:53,529 p=3523 u=ubuntu |  PLAY RECAP *****************************************************************************************************************************
+2018-11-05 13:25:53,530 p=3523 u=ubuntu |  18.206.87.49               : ok=3    changed=1    unreachable=0    failed=0   
+2018-11-05 13:25:53,530 p=3523 u=ubuntu |  34.201.55.130              : ok=3    changed=1    unreachable=0    failed=0   
+2018-11-05 13:25:53,530 p=3523 u=ubuntu |  54.91.38.69                : ok=3    changed=1    unreachable=0    failed=0   
+2018-11-05 13:25:53,530 p=3523 u=ubuntu |  cloud                      : ok=27   changed=9    unreachable=0    failed=0   
+2018-11-05 13:25:53,530 p=3523 u=ubuntu |  fabric001                  : ok=6    changed=1    unreachable=0    failed=0   
+2018-11-05 13:25:53,531 p=3523 u=ubuntu |  fabric002                  : ok=6    changed=1    unreachable=0    failed=0   
+2018-11-05 13:25:53,532 p=3523 u=ubuntu |  fabric003                  : ok=6    changed=1    unreachable=0    failed=0   

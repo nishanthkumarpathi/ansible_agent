@@ -1,0 +1,112 @@
+---
+name: "orgd-network"
+x-type: "hlfv1"
+version: "1.0.0"
+client:
+  organization: "orgd"
+  cryptoconfig:
+    path: "/fabric/keyfiles"
+  connection:
+    timeout:
+      peer:
+        endorser: 300
+        eventHub: 300
+        eventReg: 300
+      orderer: 300
+channels:
+  firstchannel:
+    orderers:
+      - orderer1st-orgc
+      - orderer1st-orgd
+      - orderer2nd-orgc
+      - orderer2nd-orgd
+    peers:
+      peer1st-orga:
+        endorsingPeer: true
+        chaincodeQuery: true
+        eventSource: true
+      peer1st-orgb:
+        endorsingPeer: true
+        chaincodeQuery: true
+        eventSource: true
+      peer2nd-orga:
+        endorsingPeer: true
+        chaincodeQuery: true
+        eventSource: true
+      peer2nd-orgb:
+        endorsingPeer: true
+        chaincodeQuery: true
+        eventSource: true
+      peer3rd-orga:
+        endorsingPeer: true
+        chaincodeQuery: true
+        eventSource: true
+      peer3rd-orgb:
+        endorsingPeer: true
+        chaincodeQuery: true
+        eventSource: true
+organizations:
+  orga:
+    mspid: "orga"
+    cryptoPath: "orga/users/{username}@orga/msp"
+    peers:
+      - peer1st-orga
+      - peer2nd-orga
+      - peer3rd-orga
+    certificateAuthorities:
+      - ca1st-orga
+  orgb:
+    mspid: "orgb"
+    cryptoPath: "orgb/users/{username}@orgb/msp"
+    peers:
+      - peer1st-orgb
+      - peer2nd-orgb
+      - peer3rd-orgb
+    certificateAuthorities:
+      - ca1st-orgb
+  orgc:
+    mspid: "orgc"
+    cryptoPath: "orgc/users/{username}@orgc/msp"
+    peers:
+    certificateAuthorities:
+      - ca1st-orgc
+  orgd:
+    mspid: "orgd"
+    cryptoPath: "orgd/users/{username}@orgd/msp"
+    peers:
+    certificateAuthorities:
+      - ca1st-orgd
+orderers:
+  orderer1st-orgc:
+    url: "grpc://orderer1st-orgc:7050"
+    grpcOptions:
+      ssl-target-name-override: "orderer1st-orgc"
+      tlsCACerts:
+        path: "/fabric/keyfiles/orgc/orderers/orderer1st-orgc.orgc/tls/ca.crt"
+  orderer1st-orgd:
+    url: "grpc://orderer1st-orgd:7050"
+    grpcOptions:
+      ssl-target-name-override: "orderer1st-orgd"
+      tlsCACerts:
+        path: "/fabric/keyfiles/orgd/orderers/orderer1st-orgd.orgd/tls/ca.crt"
+  orderer2nd-orgc:
+    url: "grpc://orderer2nd-orgc:7050"
+    grpcOptions:
+      ssl-target-name-override: "orderer2nd-orgc"
+      tlsCACerts:
+        path: "/fabric/keyfiles/orgc/orderers/orderer2nd-orgc.orgc/tls/ca.crt"
+  orderer2nd-orgd:
+    url: "grpc://orderer2nd-orgd:7050"
+    grpcOptions:
+      ssl-target-name-override: "orderer2nd-orgd"
+      tlsCACerts:
+        path: "/fabric/keyfiles/orgd/orderers/orderer2nd-orgd.orgd/tls/ca.crt"
+peers:
+certificateAuthorities:
+  ca1st-orgd:
+    url: "http://ca1st-orgd:7054"
+    caName: "ca1st-orgd"
+    httpOptions:
+      verify: false
+    tlsCACerts:
+      path: "/fabric/keyfiles/orgd/tlsca/tlsca.orgd-cert.pem"

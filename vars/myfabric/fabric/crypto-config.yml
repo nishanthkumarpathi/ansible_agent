@@ -1,0 +1,29 @@
+---
+OrdererOrgs:
+  - Name: orgc
+    Domain: orgc
+    Specs:
+      - Hostname: orderer1st-orgc
+      - Hostname: orderer2nd-orgc
+  - Name: orgd
+    Domain: orgd
+    Specs:
+      - Hostname: orderer1st-orgd
+      - Hostname: orderer2nd-orgd
+
+
+PeerOrgs:
+  - Name: orga
+    Domain: orga
+    EnableNodeOUs: true
+    Specs:
+      - Hostname: peer1st-orga
+      - Hostname: peer2nd-orga
+      - Hostname: peer3rd-orga
+  - Name: orgb
+    Domain: orgb
+    EnableNodeOUs: true
+    Specs:
+      - Hostname: peer1st-orgb
+      - Hostname: peer2nd-orgb
+      - Hostname: peer3rd-orgb

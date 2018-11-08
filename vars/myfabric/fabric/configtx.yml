@@ -1,0 +1,83 @@
+---
+Organizations:
+  - &orga
+    Name: orga
+    ID: orga
+    MSPDir: /home/ubuntu/cello/src/agent/ansible/roles/deploy_compose/../../vars/myfabric/fabric/keyfiles/orga/msp
+    AnchorPeers:
+      - Host: peer1st-orga
+        Port: 7051
+
+  - &orgb
+    Name: orgb
+    ID: orgb
+    MSPDir: /home/ubuntu/cello/src/agent/ansible/roles/deploy_compose/../../vars/myfabric/fabric/keyfiles/orgb/msp
+    AnchorPeers:
+      - Host: peer1st-orgb
+        Port: 7051
+
+  - &orgc
+    Name: orgc
+    ID: orgc
+    MSPDir: /home/ubuntu/cello/src/agent/ansible/roles/deploy_compose/../../vars/myfabric/fabric/keyfiles/orgc/msp
+
+  - &orgd
+    Name: orgd
+    ID: orgd
+    MSPDir: /home/ubuntu/cello/src/agent/ansible/roles/deploy_compose/../../vars/myfabric/fabric/keyfiles/orgd/msp
+
+
+Capabilities:
+  Global: &ChannelCapabilities
+    V1_1: true
+
+  Orderer: &OrdererCapabilities
+    V1_1: true
+
+  Application: &ApplicationCapabilities
+    V1_1: true
+Orderer: &OrdererDefaults
+  OrdererType: kafka
+  Addresses:
+    - orderer1st-orgc:7050
+    - orderer1st-orgd:7050
+    - orderer2nd-orgc:7050
+    - orderer2nd-orgd:7050
+  BatchTimeout: 2s
+  BatchSize:
+    MaxMessageCount: 10
+    AbsoluteMaxBytes: 98 MB
+    PreferredMaxBytes: 512 KB
+  Kafka:
+    Brokers:
+      - kafka1st:9092
+      - kafka2nd:9092
+      - kafka3rd:9092
+  Organizations:
+    - *orgc
+    - *orgd
+  Capabilities:
+    <<: *OrdererCapabilities
+Application: &ApplicationDefaults
+  Organizations:
+    - *orga
+    - *orgb
+
+
+Profiles:
+  OrgChannel:
+    Consortium: FabricConsortium
+    Application:
+      <<: *ApplicationDefaults
+    Capabilities:
+      <<: *ApplicationCapabilities
+  OrdererGenesis:
+    Capabilities:
+      <<: *ChannelCapabilities
+    Orderer:
+      <<: *OrdererDefaults
+    Consortiums:
+      FabricConsortium:
+        Organizations:
+          - *orga
+          - *orgb
