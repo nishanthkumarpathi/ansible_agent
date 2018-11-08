@@ -1,9 +1,0 @@
----
-- name: Reset ssh connection to make group change take effects
-  remote_user: "{{ cluster.ssh_user }}"
-  become: yes
-  vars:
-    ansible_ssh_private_key_file: "/home/ubuntu/.ssh/fd"
-  shell: sleep 1; pkill -u {{ cluster.ssh_user }} sshd
-  async: 5
-  poll: 2
